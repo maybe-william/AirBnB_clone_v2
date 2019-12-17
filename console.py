@@ -53,10 +53,10 @@ class HBNBCommand(cmd.Cmd):
                         re.sub('"', '\"', temp[1])
                         re.sub('_', ' ', temp[1])
                         setattr(obj, temp[0], temp[1])
-                    elif '.' in temp[1]:
-                        setattr(obj, temp[0], float(temp[1]))
-                    elif temp[1].isnumeric():
+                    elif re.compile('^\d+$').match(temp[1]):
                         setattr(obj, temp[0], int(temp[1]))
+                    elif re.compile('^\d+\.\d+$').match(temp[1]):
+                        setattr(obj, temp[0], float(temp[1]))
             obj.save()
             print("{}".format(obj.id))
         except SyntaxError:
