@@ -46,9 +46,9 @@ class HBNBCommand(cmd.Cmd):
             obj = eval("{}()".format(my_list[0]))
 
             if len(my_list) > 1:
-                for index in range(1,len(my_list)):
+                for index in range(1, len(my_list)):
                     temp = my_list[index].split('=')
-                    if temp[1][0] == '"' and temp[0][-1] == '"':
+                    if temp[1][0] == '"' and temp[1][-1] == '"':
                         temp[1] = temp[1][1:-1]
                         re.sub('"', '\"', temp[1])
                         re.sub('_', ' ', temp[1])
@@ -57,9 +57,6 @@ class HBNBCommand(cmd.Cmd):
                         setattr(obj, temp[0], float(temp[1]))
                     elif temp[1].isnumeric():
                         setattr(obj, temp[0], int(temp[1]))
-
-
-
             obj.save()
             print("{}".format(obj.id))
         except SyntaxError:
