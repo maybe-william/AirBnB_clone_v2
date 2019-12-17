@@ -10,8 +10,8 @@ class State(BaseModel, Base):
         name: input name
     """
     __tablename__ = "states"
-    name = Column(String(128))
-    cities = relationship("City", backref="state")
+    name = Column(String(128), nullable=False)
+    cities = relationship("City", backref="state", nullable=False)
 
     @property
     def cities(self):

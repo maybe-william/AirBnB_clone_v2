@@ -23,16 +23,16 @@ class Place(BaseModel, Base):
         amenity_ids: list of Amenity ids
     """
     __tablename__ = "places"
-    city_id = Column(String(60), ForeignKey(City.id))
-    user_id = Column(String(60), ForeignKey(User.id))
-    name = Column(String(128))
-    description = Column(String(1024))
-    number_rooms = Column(Integer, default=0)
-    number_bathrooms = Column(Integer, default=0)
-    max_guest = Column(Integer, default=0)
-    price_by_night = Column(Integer, default=0)
-    latitude = Column(Float)
-    longitude = Column(Float)
+    city_id = Column(String(60), ForeignKey(City.id), nullable=False)
+    user_id = Column(String(60), ForeignKey(User.id), nullable=False)
+    name = Column(String(128), nullable=False)
+    description = Column(String(1024), nullable=False)
+    number_rooms = Column(Integer, default=0, nullable=False)
+    number_bathrooms = Column(Integer, default=0, nullable=False)
+    max_guest = Column(Integer, default=0, nullable=False)
+    price_by_night = Column(Integer, default=0, nullable=False)
+    latitude = Column(Float, nullable=False)
+    longitude = Column(Float, nullable=False)
     amenity_ids = []
     reviews = relationship("Review", "place")
 
