@@ -50,8 +50,8 @@ class HBNBCommand(cmd.Cmd):
                     temp = my_list[index].split('=')
                     if temp[1][0] == '"' and temp[1][-1] == '"':
                         temp[1] = temp[1][1:-1]
-                        re.sub('"', '\\"', temp[1])
-                        re.sub('_', ' ', temp[1])
+                        temp[1] = re.sub('"', '\"', temp[1])
+                        temp[1] = re.sub('_', ' ', temp[1])
                         setattr(obj, temp[0], temp[1])
                     elif re.compile('^\d+$').match(temp[1]):
                         setattr(obj, temp[0], int(temp[1]))
