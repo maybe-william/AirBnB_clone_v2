@@ -75,5 +75,12 @@ class TestDBStorage(unittest.TestCase):
         y = self.storage._DBStorage__session
         self.assertNotEqual(x, y)
 
+    def test_console_regex(self):
+        """make sure regex will work"""
+        try:
+            from console import re
+        except:
+            self.assertEqual(True, False)
+
 if __name__ == "__main__":
     unittest.main()
