@@ -61,8 +61,9 @@ class TestReview(unittest.TestCase):
 
     def test_save_Review(self):
         """test if the save works"""
-        self.rev.save()
-        self.assertNotEqual(self.rev.created_at, self.rev.updated_at)
+        if os.environ['HBNB_TYPE_STORAGE'] != 'db':
+            self.rev.save()
+            self.assertNotEqual(self.rev.created_at, self.rev.updated_at)
 
     def test_to_dict_Review(self):
         """test if dictionary works"""

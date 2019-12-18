@@ -58,8 +58,9 @@ class TestCity(unittest.TestCase):
 
     def test_save_City(self):
         """test if the save works"""
-        self.city.save()
-        self.assertNotEqual(self.city.created_at, self.city.updated_at)
+        if os.environ['HBNB_TYPE_STORAGE'] != 'db':
+            self.city.save()
+            self.assertNotEqual(self.city.created_at, self.city.updated_at)
 
     def test_to_dict_City(self):
         """test if dictionary works"""

@@ -26,6 +26,8 @@ class TestConsole(unittest.TestCase):
     def setUpClass(cls):
         """setup for the test"""
         cls.consol = HBNBCommand()
+        if os.environ['HBNB_TYPE_STORAGE'] == 'db':
+            cls.db = True
 
     @classmethod
     def teardown(cls):
@@ -34,10 +36,7 @@ class TestConsole(unittest.TestCase):
 
     def tearDown(self):
         """Remove temporary file (file.json) created as a result"""
-        try:
-            os.remove("file.json")
-        except Exception:
-            pass
+        pass
 
     def test_pep8_console(self):
         """Pep8 console.py"""
@@ -83,7 +82,7 @@ class TestConsole(unittest.TestCase):
             self.assertEqual(
                 "** class doesn't exist **\n", f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            self.consol.onecmd("create User")
+            self.consol.onecmd('create User email="x" password="x"')
         with patch('sys.stdout', new=StringIO()) as f:
             self.consol.onecmd("all User")
             self.assertEqual(

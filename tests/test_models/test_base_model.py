@@ -54,8 +54,9 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save_BaesModel(self):
         """test if the save works"""
-        self.base.save()
-        self.assertNotEqual(self.base.created_at, self.base.updated_at)
+        if os.environ['HBNB_TYPE_STORAGE'] != 'db':
+            self.base.save()
+            self.assertNotEqual(self.base.created_at, self.base.updated_at)
 
     def test_to_dict_BaseModel(self):
         """test if dictionary works"""

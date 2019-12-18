@@ -55,8 +55,9 @@ class TestState(unittest.TestCase):
 
     def test_save_State(self):
         """test if the save works"""
-        self.state.save()
-        self.assertNotEqual(self.state.created_at, self.state.updated_at)
+        if os.environ['HBNB_TYPE_STORAGE'] != 'db':
+            self.state.save()
+            self.assertNotEqual(self.state.created_at, self.state.updated_at)
 
     def test_to_dict_State(self):
         """test if dictionary works"""
