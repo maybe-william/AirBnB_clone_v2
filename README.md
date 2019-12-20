@@ -12,7 +12,7 @@ This is the console /command interpreter for the Holberton Airbnb clone project.
 * Review
 
 ### Commands:
-* create - create an object
+* create - create an object and set attributes
 * show - show an object (based on id)
 * destroy - destroy an object
 * all - show all objects, of one type or all types
@@ -22,9 +22,9 @@ This is the console /command interpreter for the Holberton Airbnb clone project.
 To start, navigate to the project folder and enter `./console.py` in the shell.
 
 #### Create
-`create <class name>`
+`create <class name> <key name>=<value>`
 Ex:
-`create BaseModel`
+`create State name="California"`
 
 #### Show
 `show <class name> <object id>`
@@ -52,3 +52,12 @@ Ex:
 Additionally, the console supports `<class name>.<command>(<parameters>)` syntax.
 Ex:
 `City.show(my_city_id)`
+
+
+#Original Author
+
+Kevin Yook
+
+#Updated By
+
+Danny Hollman, William Dyrland-Marquis
