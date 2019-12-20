@@ -54,10 +54,10 @@ Ex:
 `City.show(my_city_id)`
 
 
-##Original Author
+## Original Author
 
 Kevin Yook
 
-##Updated By
+## Updated By
 
 Danny Hollman, William Dyrland-Marquis
