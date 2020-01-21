@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module runs a flask application server"""
 
-from flask import Flask
+from flask import Flask, escape
 app = Flask(__name__)
 
 
@@ -24,9 +24,9 @@ def hello_c(text):
 
 
 @app.route('/python/<text>', strict_slashes=False)
-def hello_python(text):
+def hello_python(text="is cool"):
     """display Python and then text"""
-    return "Python " + text.replace('_', ' ')
+    return "Python %s" % escape(text.replace('_', ' '))
 
 
 if __name__ == "__main__":
