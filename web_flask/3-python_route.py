@@ -23,8 +23,9 @@ def hello_c(text):
     return "C " + text.replace('_', ' ')
 
 
+@app.route('/python/', defaults={"text": "is_cool"}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
-def hello_python(text="is cool"):
+def hello_python(text):
     """display Python and then text"""
     return "Python %s" % escape(text.replace('_', ' '))
 
