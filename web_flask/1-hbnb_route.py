@@ -17,4 +17,5 @@ def hello_hbnb():
     """hbnb route returning the desired string"""
     return "HBNB"
 
-app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
