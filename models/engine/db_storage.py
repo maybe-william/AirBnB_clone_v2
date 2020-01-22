@@ -11,7 +11,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import scoped_session, sessionmaker
 
 
 class DBStorage:
@@ -85,4 +85,4 @@ class DBStorage:
         Base.metadata.create_all(DBStorage.__engine)
         Session = sessionmaker()
         Session.configure(bind=DBStorage.__engine)
-        DBStorage.__session = Session()
+        DBStorage.__session = scoped_session(Session)
