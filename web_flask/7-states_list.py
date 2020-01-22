@@ -14,7 +14,7 @@ def hello_states():
     for k, v in storage.all().items():
         if k.split(".")[0] == 'State':
             states.append(v)
-
+    states.sort(key=lambda x: x.name)
     return render_template('7-states_list.html', states=states)
 
 
