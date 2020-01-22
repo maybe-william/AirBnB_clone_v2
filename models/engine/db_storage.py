@@ -26,7 +26,7 @@ class DBStorage:
 
     def close(self):
         """call self.__session.remove() or Session.close()"""
-        self.__session.remove()
+        DBStorage.__session.remove()
 
     def __init__(self):
         """init the engine and session with sqlalchemy and mysqldb"""
