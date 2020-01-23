@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module runs a flask application server"""
+"""This module runs the flask application server"""
 
 from flask import Flask, escape
 app = Flask(__name__)
