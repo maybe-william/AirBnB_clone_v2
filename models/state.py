@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the state class"""
+"""This is the state class for AirBnB"""
 from models.base_model import BaseModel, Base, Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 import models

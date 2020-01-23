@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the file storage class for AirBnB"""
+"""This is the db storage class for AirBnB"""
 import json
 import os
 import models
