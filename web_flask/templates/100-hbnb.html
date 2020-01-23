@@ -20,11 +20,11 @@
 	  <h4>&nbsp;</h4>
 	  <div class="popover">
 	    <ul>
-	    {% for s in st %}
+	    {% for state in st %}
 	      <li>
-	        <h2>{{ s.name }}:</h2>
+	        <h2>{{ state.name }}:</h2>
 		<ul>
-		  {% for c in s.cities|sort(attribute='name') %}
+		  {% for c in state.cities|sort(attribute='name') %}
 		  <li>{{ c.name }}</li>
 		  {% endfor %}
 		</ul>
